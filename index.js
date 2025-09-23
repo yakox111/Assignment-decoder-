@@ -5,26 +5,26 @@ async function decodeAssignment() {
             const resultContent = document.getElementById('resultContent');
             const loading = document.getElementById('loading');
             const error = document.getElementById('error');
-            
+
             // Reset UI
             resultSection.style.display = 'none';
             error.style.display = 'none';
             loading.style.display = 'block';
-            
+
             // Get inputs
             const apiKey = apiKeyInput.trim();
             const assignmentText = assignmentInput.value.trim();
-            
+
             if (!apiKey) {
                 showError('Please enter your GLM-4.5 API key');
                 return;
             }
-            
+
             if (!assignmentText) {
                 showError('Please enter an assignment to decode');
                 return;
             }
-            
+
             // Create the prompt
             const prompt = `You are "Assignment Decoder," an AI that transforms confusing educational assignments into clear, step-by-step guides. When given an assignment description:
 
@@ -77,9 +77,9 @@ Now decode this assignment: "${assignmentText}"`;
                         max_tokens: 1024
                     })
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (response.ok) {
                     // Display result
                     resultContent.textContent = data.choices[0].message.content;
@@ -95,16 +95,22 @@ Now decode this assignment: "${assignmentText}"`;
                 loading.style.display = 'none';
             }
         }
-        
+
         function showError(message) {
             const errorElement = document.getElementById('error');
             errorElement.textContent = message;
             errorElement.style.display = 'block';
         }
-        
+
         // Allow Enter key to trigger decode
         document.getElementById('assignment').addEventListener('keydown', function(event) {
             if (event.ctrlKey && event.key === 'Enter') {
                 decodeAssignment();
             }
         });
+            document.getElementsByClassName("button-container").addEventListener("click",event=>{
+                    document.getElementsByClassName("result-section").style.display="block"
+            })
+                document.getElementsByClassName("button-container").addEventListener("click",event=>{
+                    document.getElementsByClassName("loading").style.display="block"
+            })
