@@ -3,39 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment Decoder - AI-Powered Assignment Helper</title>
-  <!--<link rel="stylesheet" href="style.css">-->
+    <title>Assignment Decoder</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>Assignment Decoder</h1>
-            <p>Transform confusing assignments into clear, step-by-step guides</p>
+            <p>Transform confusing assignments into clear, <br>step-by-step PROCESS!!!</p>
         </div>
-        
+
         <div class="input-section">
             <label for="assignment">Paste your assignment below:</label>
-            <textarea id="assignment" placeholder="Example: Write a research paper about climate change. Include evidence and analysis."></textarea>
+            <br>
+            <textarea id="assignment" placeholder="Example: Write a research paper about climate change. Include evidence and analysis."></textarea><br>
         </div>
-        
+
         <div class="button-container">
             <button onclick="decodeAssignment()">Decode Assignment</button>
         </div>
-        
+
         <div class="loading" id="loading">
             <p>🤖 AI is decoding your assignment...</p>
         </div>
-        
+
         <div class="error" id="error"></div>
-        
+
+
+
         <div class="result-section" id="result">
             <div class="result-header">
-                <h2>Decoded Assignment</h2>
+                 <h2>Decoded Assignment</h2>
                 <span class="result-badge">Ready to Go!</span>
             </div>
             <div class="result-content" id="resultContent"></div>
         </div>
-        
+
         <div class="footer">
             <p>Powered by GLM-4.5 • Made for students and teachers</p>
         </div>
