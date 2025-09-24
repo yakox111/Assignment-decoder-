@@ -28,7 +28,7 @@ async function decodeAssignment() {
             // Create the prompt
             const prompt = `You are "Assignment Decoder," an AI that transforms confusing educational assignments into clear, step-by-step guides. When given an assignment description:
 
-1. Break it into 5 actionable steps (simplify vague terms like "analyze," "discuss," or "explore" into concrete actions)
+1. Break it into suitable number of actionable steps (simplify vague terms like "analyze," "discuss," or "explore" into concrete actions)
 2. Create a completion checklist based on the steps
 3. Suggest 2-3 relevant resources (use these exact formats):
    - For math: "Khan Academy: [topic] (https://www.khanacademy.org/math/[topic])"
@@ -36,7 +36,7 @@ async function decodeAssignment() {
    - For science: "PhET Simulations: [concept] (https://phet.colorado.edu/en/simulation/[simulation])"
    - General: "Crash Course [subject] (YouTube)"
 
-Format your response exactly like this:
+Format your response something similar to like this not exactly like this you are free to make any changes:
 
 **STEPS:**
 1. [First clear action]
@@ -84,6 +84,7 @@ Now decode this assignment: "${assignmentText}"`;
                     // Display result
                     resultContent.textContent = data.choices[0].message.content;
                     resultSection.style.display = 'block';
+                    console.log(data.choices[0].message.content);
                 } else {
                     // Display error
                     showError(data.error?.message || 'Failed to decode assignment');
@@ -109,8 +110,8 @@ Now decode this assignment: "${assignmentText}"`;
             }
         });
             document.getElementsByClassName("button-container").addEventListener("click",event=>{
-                    document.getElementsByClassName("result-section").style.display="block"
+                    document.getElementsByClassName("result-section").style.display="block";
             })
                 document.getElementsByClassName("button-container").addEventListener("click",event=>{
-                    document.getElementsByClassName("loading").style.display="block"
+                    document.getElementsByClassName("loading").style.display="block";
             })
